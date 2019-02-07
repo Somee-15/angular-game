@@ -1,0 +1,35 @@
+{
+  "players": [
+    {
+      "value": "a",
+      "id": 1
+    },
+    {
+      "value": "a",
+      "id": 2
+    },
+    {
+      "value": "q",
+      "id": 3
+    },
+    {
+      "value": "a",
+      "id": 4
+    },
+    {
+      "value": "ajay",
+      "id": 5
+    }
+  ],
+  "posts": [],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

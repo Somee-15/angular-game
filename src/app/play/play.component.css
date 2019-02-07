@@ -1,0 +1,22 @@
+.box {
+
+    border : 2px solid black;
+    flex-grow: 0.49;
+
+}
+
+.top {
+
+    margin-top:75px;
+    display:flex;
+    justify-content: space-around;
+    height : 250px;
+}
+
+.bot {
+
+    display: flex;
+    justify-content: space-around;
+    height : 250px;
+    margin-top:20px;
+}
