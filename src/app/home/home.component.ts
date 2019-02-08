@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   }
 
   onClick(value : any){
-    this.playService.setPlayers(value);
+    this.playService.setplayerName(value);
 
     // return this.http
     // .post("http://localhost:3004/players", {

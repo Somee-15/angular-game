@@ -13,6 +13,7 @@ export class GameoverComponent implements OnInit {
   constructor(private playerService:PlayerService) { }
 
   ngOnInit() {
+    
     console.log("am i getting executed ???")
     this.getPlayers();
   }

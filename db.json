@@ -1,24 +1,37 @@
 {
   "players": [
     {
-      "value": "a",
+      "name": "Ajay",
+      "score": 125,
       "id": 1
     },
     {
-      "value": "a",
+      "name": "Ajay",
+      "score": 0,
       "id": 2
     },
     {
-      "value": "q",
+      "score": 100,
       "id": 3
     },
     {
-      "value": "a",
+      "name": "ajay",
+      "score": 35,
       "id": 4
     },
     {
-      "value": "ajay",
+      "score": 145,
       "id": 5
+    },
+    {
+      "name": "asdd",
+      "score": 115,
+      "id": 6
+    },
+    {
+      "name": "this is the name",
+      "score": -10,
+      "id": 7
     }
   ],
   "posts": [],
