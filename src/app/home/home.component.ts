@@ -1,30 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {PlayerService} from '../player.service'
-  
+import { Component, OnInit } from "@angular/core";
+import { PlayerService } from "../player.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
+  constructor(private playService: PlayerService) {}
 
- 
-  constructor(private playService:PlayerService) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  onClick(value : any){
+  onClick(value: any) {
     this.playService.setplayerName(value);
-
-    // return this.http
-    // .post("http://localhost:3004/players", {
-    //   value
-    // })
-    // .subscribe(console.log);
-
-    // console.log(event.target.id);
   }
-
 }

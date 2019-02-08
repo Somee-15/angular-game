@@ -1,18 +1,15 @@
-
-
 <h2>Score Board</h2>
-<div class="conainer_12 ml=5 scoreBoard "> 
-  
-  <div class="row section2 w-50 justify-content-between " >
+<div class="conainer_12 ml=5 scoreBoard ">
+  <div class="row section2 w-50 justify-content-between ">
     <div class="p-4 col-sm-6 ">Name</div>
     <div class="p-4 col-sm-6 ">Score</div>
   </div>
 
-
-
-  <div class="row section2 w-50 justify-content-between "  *ngFor = "let a of players" >
-      <div class="p-4 col-sm-6 ">{{a.name}}</div>
-      <div class="p-4 col-sm-6 ">{{a.score}}</div>
-    </div>
-  
-</div> 
+  <div
+    class="row section2 w-50 justify-content-between "
+    *ngFor="let a of players"
+  >
+    <div class="p-4 col-sm-6 ">{{ a.name }}</div>
+    <div class="p-4 col-sm-6 ">{{ a.score }}</div>
+  </div>
+</div>

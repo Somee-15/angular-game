@@ -1,138 +1,90 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { Router } from '@angular/router';
-import { timer } from 'rxjs';
-import {PlayerService} from '../player.service'
+import { Router } from "@angular/router";
+
+import { PlayerService } from "../player.service";
 
 @Component({
-  selector: 'app-play',
-  templateUrl: './play.component.html',
-  styleUrls: ['./play.component.css']
+  selector: "app-play",
+  templateUrl: "./play.component.html",
+  styleUrls: ["./play.component.css"]
 })
 export class PlayComponent implements OnInit {
-
-  timeLeft:number=60;
-  score:number=0;
-  oldScore:number;
+  timeLeft: number = 10;
+  score: number = 0;
   interval;
+  timeSpeed = 1000;
 
-  interval1;
+  c1 = true;
+  c2 = false;
+  c3 = false;
+  c4 = false;
 
-  c1=true;
-  c2=false;
-  c3=false;
-  c4=false;
+  timestamp = 1000;
 
-  
-
-
-  timestamp=1000;
-
-
-  constructor(private router:Router,private playerService:PlayerService) { }
+  constructor(private router: Router, private playerService: PlayerService) {}
 
   ngOnInit() {
-    this.interval=setInterval(()=>{
-    if (this.timeLeft>0) {
-      this.timeLeft--; 
-      this.change();
-    }
-    else{
-
-      clearInterval(this.interval);
-      this.playerService.setplayerScore(this.score);   
-      this.switchtoScore();
-      
-      
-    }
-  },1000)
+    this.startTimer(this.timeSpeed);
   }
 
-  switchtoScore(){
-    this.playerService.setPlayersDetails();
-    this.router.navigate(['/','gameover']);
-  }
-  
-  
-
-
-
-  randomInter(){
-    this.c1=false;
-    this.c2=false;
-    this.c3=false;
-    this.c4=false;
-    let number = Math.floor(Math.random() * 4 + 1 );
-    console.log(number);
-    if(number==1)
-    {
-      this.c1=true;
-    }
-    else if(number==2)
-    {
-      this.c2=true;
-    }
-    else if( number==3)
-    {
-      this.c3=true;
-    }
-    else
-    {
-      this.c4=true;
-    }
-  }
-
-  change(){
-    this.interval1= setInterval(()=>{
-
-      if(this.timeLeft>0){
+  startTimer(timeSpeed: any) {
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
         this.randomInter();
-      
+      } else {
+        clearInterval(this.interval);
+        this.switchtoScore();
       }
-      else{
-        clearInterval(this.interval1);
-      } 
-    },this.timestamp)
+    }, timeSpeed);
   }
 
-  
+  switchtoScore() {
+    this.playerService.setplayerScore(this.score);
+    this.playerService.setPlayersDetails();
+    this.router.navigate(["/", "gameover"]);
+  }
 
-  onClick(value:boolean){
-    if(value==true){
-      
-      this.score=this.score+10;
-      if(this.score>=50 && this.score<100)
-      {
-        this.timestamp=999
-      }
-      else if(this.score>=100 && this.score<150)
-      {
-        this.timestamp=998
-      }
-      else if(this.score>=150 && this.score<=200)
-      {
-        this.timestamp=997
-      }
-      else if(this.score>=200 && this.score<=250)
-      {
-        this.timestamp=996
-      }
-      else if(this.score>=250 && this.score<300)
-      {
-        this.timestamp=992
-      }
-      else if(this.score>=350 )
-      {
-        this.timestamp=990
-      }
+  randomInter() {
+    this.c1 = false;
+    this.c2 = false;
+    this.c3 = false;
+    this.c4 = false;
+    let number = Math.floor(Math.random() * 4 + 1);
 
+    if (number == 1) {
+      this.c1 = true;
+    } else if (number == 2) {
+      this.c2 = true;
+    } else if (number == 3) {
+      this.c3 = true;
+    } else {
+      this.c4 = true;
     }
-        else{
-          this.score=this.score-5;
-        }      
+  }
 
-      console.log(this.score);
-}
-
-  
+  onClick(value: boolean) {
+    if (value == true) {
+      this.score = this.score + 10;
+      if (this.score > 30 && this.score < 50) {
+        this.timeSpeed = 800;
+      } else if (this.score > 100) {
+        this.timeSpeed = 700;
+      } else if (this.score > 110) {
+        this.timeSpeed = 550;
+      } else if (this.score > 200) {
+        this.timeSpeed = 450;
+      } else if (this.score > 300) {
+        this.timeSpeed = 350;
+      } else if (this.score > 400) {
+        this.timeSpeed = 200;
+      }
+      clearInterval(this.interval);
+      this.startTimer(this.timeSpeed);
+      this.randomInter();
+    } else {
+      this.score = this.score - 5;
+    }
+  }
 }
