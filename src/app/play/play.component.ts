@@ -41,8 +41,8 @@ export class PlayComponent implements OnInit {
   }
 
   switchtoScore() {
-    this.playerService.setplayerScore(this.score);
-    this.playerService.setPlayersDetails();
+    this.playerService.setplayerScore(this.score).subscribe(console.log());
+    this.playerService.setPlayersDetails().subscribe(console.log());
     this.router.navigate(["/", "gameover"]);
   }
 
