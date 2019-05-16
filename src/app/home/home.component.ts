@@ -12,6 +12,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   onClick(value: any) {
-    this.playService.setplayerName(value);
+    this.playService.setplayerName(value).subscribe(console.log());
   }
 }
